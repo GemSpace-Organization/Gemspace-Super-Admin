@@ -5,7 +5,7 @@ A modern, scalable admin dashboard built with Next.js 16 and cutting-edge techno
 ## 🛠 Technology Stack
 
 - **Framework**: Next.js 16.1.6 with Turbopack
-- **Runtime**: React 19.2.4 
+- **Runtime**: React 19.2.4
 - **Language**: TypeScript 5.9.3
 - **Styling**: Tailwind CSS 4.1.18
 - **UI Components**: shadcn/ui (radix-mira style)
@@ -16,7 +16,8 @@ A modern, scalable admin dashboard built with Next.js 16 and cutting-edge techno
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - pnpm, npm, or yarn
 
 ### Installation
@@ -41,7 +42,7 @@ yarn install
 npm run dev
 # or
 pnpm dev
-# or  
+# or
 yarn dev
 ```
 
@@ -81,18 +82,21 @@ gemspace-super-admin/
 ## 🎨 Features
 
 ### Theme System
+
 - **Dark/Light Mode**: Automatic system detection
 - **Manual Toggle**: Press `d` key to switch themes
 - **OKLCH Color System**: Modern perceptual color space
 - **CSS Variables**: Comprehensive design tokens
 
 ### Component System
+
 - **shadcn/ui Integration**: High-quality, accessible components
 - **Variant Support**: Multiple styles and sizes
 - **TypeScript**: Full type safety
 - **Customizable**: Easy theme and style modifications
 
 ### Developer Experience
+
 - **Hot Reload**: Turbopack for instant updates
 - **Code Quality**: ESLint + Prettier configuration
 - **Type Safety**: Strict TypeScript setup
@@ -107,6 +111,7 @@ npx shadcn@latest add [component-name]
 ```
 
 Example:
+
 ```bash
 npx shadcn@latest add dialog
 npx shadcn@latest add form
@@ -117,7 +122,7 @@ npx shadcn@latest add table
 
 - `npm run dev` - Start development server with Turbopack
 - `npm run build` - Build for production
-- `npm run start` - Start production server  
+- `npm run start` - Start production server
 - `npm run lint` - Run ESLint
 - `npm run format` - Format code with Prettier
 - `npm run typecheck` - Type check with TypeScript

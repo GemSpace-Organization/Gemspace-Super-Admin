@@ -1,4 +1,5 @@
-import { Geist, Geist_Mono, Nunito_Sans } from "next/font/google"
+import type { Metadata } from "next"
+import { Geist_Mono, Nunito_Sans } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -11,6 +12,15 @@ const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 })
+
+export const metadata: Metadata = {
+  title: {
+    default: "Gemspace Super Admin",
+    template: "%s | Gemspace Super Admin",
+  },
+  description:
+    "Platform administration dashboard for Gemspace — manage institutions, users, and platform operations.",
+}
 
 export default function RootLayout({
   children,

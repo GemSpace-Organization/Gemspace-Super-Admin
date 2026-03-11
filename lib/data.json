@@ -1,0 +1,194 @@
+{
+  "stats": {
+    "totalTenants": 48,
+    "activeTenants": 42,
+    "pendingVerification": 6,
+    "totalAdmins": 156,
+    "activeAdmins": 143,
+    "monthlyRevenue": 84320,
+    "revenueGrowth": 8.2,
+    "systemUptime": 99.97,
+    "totalStudents": 124500,
+    "totalLecturers": 3840,
+    "aiRequestsToday": 18420,
+    "supportTicketsOpen": 12
+  },
+  "revenueChart": [
+    { "month": "Jul", "revenue": 48200, "expenses": 21400 },
+    { "month": "Aug", "revenue": 52100, "expenses": 22800 },
+    { "month": "Sep", "revenue": 58400, "expenses": 24100 },
+    { "month": "Oct", "revenue": 63700, "expenses": 25900 },
+    { "month": "Nov", "revenue": 71800, "expenses": 27200 },
+    { "month": "Dec", "revenue": 69500, "expenses": 28800 },
+    { "month": "Jan", "revenue": 74200, "expenses": 29100 },
+    { "month": "Feb", "revenue": 78900, "expenses": 30200 },
+    { "month": "Mar", "revenue": 84320, "expenses": 31500 }
+  ],
+  "tenantGrowth": [
+    { "month": "Jul", "tenants": 28, "admins": 89 },
+    { "month": "Aug", "tenants": 30, "admins": 97 },
+    { "month": "Sep", "tenants": 33, "admins": 108 },
+    { "month": "Oct", "tenants": 36, "admins": 118 },
+    { "month": "Nov", "tenants": 39, "admins": 128 },
+    { "month": "Dec", "tenants": 41, "admins": 135 },
+    { "month": "Jan", "tenants": 43, "admins": 140 },
+    { "month": "Feb", "tenants": 45, "admins": 148 },
+    { "month": "Mar", "tenants": 48, "admins": 156 }
+  ],
+  "subscriptionBreakdown": [
+    { "plan": "Enterprise", "count": 12, "fill": "var(--color-chart-1)" },
+    { "plan": "Professional", "count": 18, "fill": "var(--color-chart-2)" },
+    { "plan": "Starter", "count": 14, "fill": "var(--color-chart-3)" },
+    { "plan": "Trial", "count": 4, "fill": "var(--color-chart-5)" }
+  ],
+  "platformUsage": [
+    { "day": "Mon", "logins": 3420, "apiCalls": 14200 },
+    { "day": "Tue", "logins": 3890, "apiCalls": 15800 },
+    { "day": "Wed", "logins": 4120, "apiCalls": 16900 },
+    { "day": "Thu", "logins": 3950, "apiCalls": 15400 },
+    { "day": "Fri", "logins": 3680, "apiCalls": 14800 },
+    { "day": "Sat", "logins": 1890, "apiCalls": 8200 },
+    { "day": "Sun", "logins": 1540, "apiCalls": 6800 }
+  ],
+  "topTenants": [
+    {
+      "name": "University of Lagos",
+      "admins": 12,
+      "users": 4200,
+      "plan": "Enterprise",
+      "status": "active"
+    },
+    {
+      "name": "Covenant University",
+      "admins": 8,
+      "users": 3100,
+      "plan": "Enterprise",
+      "status": "active"
+    },
+    {
+      "name": "Babcock University",
+      "admins": 6,
+      "users": 2400,
+      "plan": "Professional",
+      "status": "active"
+    },
+    {
+      "name": "Lagos State University",
+      "admins": 5,
+      "users": 1800,
+      "plan": "Professional",
+      "status": "active"
+    },
+    {
+      "name": "University of Ibadan",
+      "admins": 9,
+      "users": 3800,
+      "plan": "Enterprise",
+      "status": "active"
+    }
+  ],
+  "recentActivity": [
+    {
+      "type": "tenant_verified",
+      "title": "University of Lagos verified",
+      "time": "2 hours ago"
+    },
+    {
+      "type": "tenant_onboarding",
+      "title": "Covenant University started onboarding",
+      "time": "4 hours ago"
+    },
+    {
+      "type": "content_flagged",
+      "title": "3 items flagged for review in AI Services",
+      "time": "5 hours ago"
+    },
+    {
+      "type": "revenue_milestone",
+      "title": "Monthly revenue crossed $80K milestone",
+      "time": "1 day ago"
+    },
+    {
+      "type": "system_check",
+      "title": "Scheduled maintenance completed successfully",
+      "time": "1 day ago"
+    },
+    {
+      "type": "admin_added",
+      "title": "New admin registered for Babcock University",
+      "time": "2 days ago"
+    },
+    {
+      "type": "subscription_upgrade",
+      "title": "LASU upgraded to Professional plan",
+      "time": "2 days ago"
+    },
+    {
+      "type": "support_resolved",
+      "title": "18 support tickets resolved this week",
+      "time": "3 days ago"
+    }
+  ],
+  "pendingActions": [
+    {
+      "label": "Tenants awaiting verification",
+      "count": 5,
+      "href": "/tenants"
+    },
+    { "label": "Open support tickets", "count": 12, "href": "/support-center" },
+    {
+      "label": "Content moderation queue",
+      "count": 8,
+      "href": "/content-moderation"
+    },
+    { "label": "Pending admin requests", "count": 3, "href": "/tenant-admins" }
+  ],
+  "systemServices": [
+    {
+      "name": "API Gateway",
+      "status": "operational",
+      "uptime": 99.99,
+      "latency": 42
+    },
+    {
+      "name": "Auth Service",
+      "status": "operational",
+      "uptime": 99.98,
+      "latency": 38
+    },
+    {
+      "name": "Database Cluster",
+      "status": "operational",
+      "uptime": 99.97,
+      "latency": 12
+    },
+    {
+      "name": "AI Engine",
+      "status": "degraded",
+      "uptime": 98.5,
+      "latency": 320
+    },
+    {
+      "name": "Storage Service",
+      "status": "operational",
+      "uptime": 99.95,
+      "latency": 85
+    },
+    {
+      "name": "Email Service",
+      "status": "operational",
+      "uptime": 99.92,
+      "latency": 210
+    }
+  ],
+  "aiUsage": [
+    { "month": "Jul", "requests": 18000, "cost": 2400 },
+    { "month": "Aug", "requests": 22000, "cost": 2900 },
+    { "month": "Sep", "requests": 28000, "cost": 3600 },
+    { "month": "Oct", "requests": 32000, "cost": 4100 },
+    { "month": "Nov", "requests": 38000, "cost": 4800 },
+    { "month": "Dec", "requests": 35000, "cost": 4500 },
+    { "month": "Jan", "requests": 42000, "cost": 5200 },
+    { "month": "Feb", "requests": 45200, "cost": 5600 }
+  ]
+}

@@ -19,6 +19,22 @@ const badgeVariants = cva(
         ghost:
           "hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50",
         link: "text-primary underline-offset-4 hover:underline",
+        success:
+          "bg-success/10 text-success dark:bg-success/20 [a]:hover:bg-success/20",
+        warning:
+          "bg-warning/10 text-warning-foreground dark:bg-warning/20 dark:text-warning [a]:hover:bg-warning/20",
+        info: "bg-info/10 text-info dark:bg-info/20 [a]:hover:bg-info/20",
+        active:
+          "bg-success/10 text-success before:mr-1 before:inline-block before:size-1.5 before:rounded-full before:bg-success before:content-[''] dark:bg-success/20 [a]:hover:bg-success/20",
+        inactive:
+          "bg-muted text-muted-foreground before:mr-1 before:inline-block before:size-1.5 before:rounded-full before:bg-muted-foreground/50 before:content-[''] [a]:hover:bg-muted/80",
+        suspended:
+          "bg-destructive/10 text-destructive before:mr-1 before:inline-block before:size-1.5 before:rounded-full before:bg-destructive before:content-[''] dark:bg-destructive/20 [a]:hover:bg-destructive/20",
+        teal: "bg-teal/10 text-teal dark:bg-teal/20 [a]:hover:bg-teal/20",
+        indigo:
+          "bg-indigo/10 text-indigo-foreground dark:bg-indigo/20 dark:text-indigo [a]:hover:bg-indigo/20",
+        amber:
+          "bg-amber/10 text-amber-foreground dark:bg-amber/20 dark:text-amber [a]:hover:bg-amber/20",
       },
     },
     defaultVariants: {
