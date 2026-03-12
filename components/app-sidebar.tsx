@@ -5,6 +5,7 @@ import * as React from "react"
 import { NavMain } from "@/components/nav-main"
 import { NavUser } from "@/components/nav-user"
 import { SidebarBrand } from "@/components/sidebar-brand"
+import { SidebarSearch } from "@/components/sidebar-search"
 import {
   Sidebar,
   SidebarContent,
@@ -16,14 +17,20 @@ import {
   LayoutDashboardIcon,
   BuildingIcon,
   UserCogIcon,
+  UsersIcon,
   BarChart3Icon,
+  FileBarChartIcon,
   CreditCardIcon,
   BrainCircuitIcon,
   ShieldAlertIcon,
   FileTextIcon,
+  ShieldCheckIcon,
+  ScaleIcon,
   ActivityIcon,
   MegaphoneIcon,
   LifeBuoyIcon,
+  MailIcon,
+  ToggleLeftIcon,
   Settings2Icon,
 } from "lucide-react"
 
@@ -33,103 +40,201 @@ const data = {
     email: "admin@gemspace.app",
     avatar: "",
   },
-  navMain: [
+  navGroups: [
     {
-      title: "Dashboard",
-      url: "/dashboard",
-      icon: <LayoutDashboardIcon />,
-      isActive: true,
-    },
-    {
-      title: "Tenants",
-      url: "/tenants",
-      icon: <BuildingIcon />,
+      label: "Overview",
       items: [
-        { title: "All Tenants", url: "/tenants" },
-        { title: "Onboarding Pipeline", url: "/tenants/pipeline" },
-        { title: "Verification Queue", url: "/tenants/verification" },
+        {
+          title: "Dashboard",
+          url: "/dashboard",
+          icon: <LayoutDashboardIcon />,
+          isActive: true,
+        },
       ],
     },
     {
-      title: "Tenant Admins",
-      url: "/tenant-admins",
-      icon: <UserCogIcon />,
+      label: "Management",
       items: [
-        { title: "All Administrators", url: "/tenant-admins" },
-        { title: "Role Assignments", url: "/tenant-admins/roles" },
-        { title: "Access Permissions", url: "/tenant-admins/permissions" },
+        {
+          title: "Tenants",
+          url: "/tenants",
+          icon: <BuildingIcon />,
+          items: [
+            { title: "All Tenants", url: "/tenants" },
+            { title: "Onboarding Pipeline", url: "/tenants/pipeline" },
+            { title: "Verification Queue", url: "/tenants/verification" },
+          ],
+        },
+        {
+          title: "Tenant Admins",
+          url: "/tenant-admins",
+          icon: <UserCogIcon />,
+          items: [
+            { title: "All Administrators", url: "/tenant-admins" },
+            { title: "Role Assignments", url: "/tenant-admins/roles" },
+            { title: "Access Permissions", url: "/tenant-admins/permissions" },
+          ],
+        },
+        {
+          title: "User Management",
+          url: "/user-management",
+          icon: <UsersIcon />,
+          items: [
+            { title: "All Users", url: "/user-management" },
+            { title: "Students", url: "/user-management/students" },
+            { title: "Lecturers", url: "/user-management/lecturers" },
+          ],
+        },
       ],
     },
     {
-      title: "Analytics",
-      url: "/platform-analytics",
-      icon: <BarChart3Icon />,
+      label: "Financial",
       items: [
-        { title: "Overview", url: "/platform-analytics" },
-        { title: "Tenant Usage", url: "/platform-analytics/usage" },
-        { title: "Growth Metrics", url: "/platform-analytics/growth" },
+        {
+          title: "Subscriptions",
+          url: "/subscriptions",
+          icon: <CreditCardIcon />,
+          items: [
+            { title: "All Plans", url: "/subscriptions" },
+            { title: "Invoices", url: "/subscriptions/invoices" },
+            { title: "Revenue", url: "/subscriptions/revenue" },
+          ],
+        },
       ],
     },
     {
-      title: "Subscriptions",
-      url: "/subscriptions",
-      icon: <CreditCardIcon />,
+      label: "Analytics & Reports",
       items: [
-        { title: "All Plans", url: "/subscriptions" },
-        { title: "Invoices", url: "/subscriptions/invoices" },
-        { title: "Revenue", url: "/subscriptions/revenue" },
+        {
+          title: "Analytics",
+          url: "/platform-analytics",
+          icon: <BarChart3Icon />,
+          items: [
+            { title: "Overview", url: "/platform-analytics" },
+            { title: "Tenant Usage", url: "/platform-analytics/usage" },
+            { title: "Growth Metrics", url: "/platform-analytics/growth" },
+          ],
+        },
+        {
+          title: "Reports",
+          url: "/reports",
+          icon: <FileBarChartIcon />,
+          items: [
+            { title: "Scheduled Reports", url: "/reports" },
+            { title: "Data Exports", url: "/reports/exports" },
+          ],
+        },
       ],
     },
     {
-      title: "AI Services",
-      url: "/ai-services",
-      icon: <BrainCircuitIcon />,
+      label: "AI & Technology",
       items: [
-        { title: "Service Overview", url: "/ai-services" },
-        { title: "Model Config", url: "/ai-services/models" },
-        { title: "Quotas & Limits", url: "/ai-services/quotas" },
+        {
+          title: "AI Services",
+          url: "/ai-services",
+          icon: <BrainCircuitIcon />,
+          items: [
+            { title: "Service Overview", url: "/ai-services" },
+            { title: "Model Config", url: "/ai-services/models" },
+            { title: "Quotas & Limits", url: "/ai-services/quotas" },
+          ],
+        },
       ],
     },
     {
-      title: "Moderation",
-      url: "/content-moderation",
-      icon: <ShieldAlertIcon />,
+      label: "Security & Compliance",
       items: [
-        { title: "Review Queue", url: "/content-moderation" },
-        { title: "Flagged Content", url: "/content-moderation/flagged" },
-        { title: "Policies", url: "/content-moderation/policies" },
+        {
+          title: "Moderation",
+          url: "/content-moderation",
+          icon: <ShieldAlertIcon />,
+          items: [
+            { title: "Review Queue", url: "/content-moderation" },
+            { title: "Flagged Content", url: "/content-moderation/flagged" },
+            { title: "Policies", url: "/content-moderation/policies" },
+          ],
+        },
+        {
+          title: "Audit Logs",
+          url: "/audit-logs",
+          icon: <FileTextIcon />,
+        },
+        {
+          title: "Roles & Permissions",
+          url: "/roles-permissions",
+          icon: <ShieldCheckIcon />,
+          items: [
+            { title: "Role Templates", url: "/roles-permissions" },
+            { title: "Permission Matrix", url: "/roles-permissions/matrix" },
+            { title: "Access Policies", url: "/roles-permissions/policies" },
+          ],
+        },
+        {
+          title: "Compliance",
+          url: "/compliance",
+          icon: <ScaleIcon />,
+          items: [
+            { title: "Regulatory", url: "/compliance" },
+            { title: "Data Privacy", url: "/compliance/privacy" },
+            { title: "Certifications", url: "/compliance/certifications" },
+          ],
+        },
       ],
     },
     {
-      title: "Audit Logs",
-      url: "/audit-logs",
-      icon: <FileTextIcon />,
-    },
-    {
-      title: "System Health",
-      url: "/system-health",
-      icon: <ActivityIcon />,
-    },
-    {
-      title: "Announcements",
-      url: "/announcements",
-      icon: <MegaphoneIcon />,
-    },
-    {
-      title: "Support Center",
-      url: "/support-center",
-      icon: <LifeBuoyIcon />,
-    },
-    {
-      title: "Settings",
-      url: "/platform-settings",
-      icon: <Settings2Icon />,
+      label: "Operations",
       items: [
-        { title: "General", url: "/platform-settings" },
-        { title: "Branding", url: "/platform-settings/branding" },
-        { title: "Notifications", url: "/platform-settings/notifications" },
-        { title: "API Keys", url: "/platform-settings/api-keys" },
-        { title: "Integrations", url: "/platform-settings/integrations" },
+        {
+          title: "System Health",
+          url: "/system-health",
+          icon: <ActivityIcon />,
+        },
+        {
+          title: "Announcements",
+          url: "/announcements",
+          icon: <MegaphoneIcon />,
+        },
+        {
+          title: "Support Center",
+          url: "/support-center",
+          icon: <LifeBuoyIcon />,
+        },
+        {
+          title: "Email Templates",
+          url: "/email-templates",
+          icon: <MailIcon />,
+          items: [
+            { title: "All Templates", url: "/email-templates" },
+            { title: "Delivery Logs", url: "/email-templates/logs" },
+          ],
+        },
+        {
+          title: "Feature Flags",
+          url: "/feature-flags",
+          icon: <ToggleLeftIcon />,
+          items: [
+            { title: "Active Flags", url: "/feature-flags" },
+            { title: "Experiments", url: "/feature-flags/experiments" },
+            { title: "Rollout Plans", url: "/feature-flags/rollouts" },
+          ],
+        },
+      ],
+    },
+    {
+      label: "Configuration",
+      items: [
+        {
+          title: "Settings",
+          url: "/platform-settings",
+          icon: <Settings2Icon />,
+          items: [
+            { title: "General", url: "/platform-settings" },
+            { title: "Branding", url: "/platform-settings/branding" },
+            { title: "Notifications", url: "/platform-settings/notifications" },
+            { title: "API Keys", url: "/platform-settings/api-keys" },
+            { title: "Integrations", url: "/platform-settings/integrations" },
+          ],
+        },
       ],
     },
   ],
@@ -140,9 +245,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <SidebarBrand />
+        <SidebarSearch groups={data.navGroups} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain groups={data.navGroups} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

@@ -7,6 +7,8 @@ export default function TenantAdminsPage() {
       title="Tenant Administrators"
       description="Manage administrators across all tenants. Assign roles, configure access permissions, and monitor admin activities across the entire platform."
       icon={<UserCogIcon className="size-6" />}
+      category="Management"
+      eta="Q2 2026"
       progress={30}
       features={[
         "Directory of all tenant administrators",

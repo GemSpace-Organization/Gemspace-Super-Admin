@@ -7,6 +7,8 @@ export default function ContentModerationPage() {
       title="Content Moderation"
       description="Review and moderate content across all tenants. Manage flagged items, configure automated moderation policies, and ensure platform-wide safety and compliance."
       icon={<ShieldAlertIcon className="size-6" />}
+      category="Security & Compliance"
+      eta="Q3 2026"
       progress={30}
       features={[
         "Real-time content review queue",

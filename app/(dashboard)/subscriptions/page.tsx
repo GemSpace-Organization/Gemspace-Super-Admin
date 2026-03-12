@@ -7,6 +7,8 @@ export default function SubscriptionsPage() {
       title="Subscription Management"
       description="Manage subscription plans, invoices, and revenue tracking across all tenants. Configure pricing tiers and monitor the full billing lifecycle."
       icon={<CreditCardIcon className="size-6" />}
+      category="Financial"
+      eta="Q2 2026"
       progress={35}
       features={[
         "Subscription plan creation and management",

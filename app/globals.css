@@ -76,6 +76,32 @@
   --amber: oklch(0.82 0.155 80);
   --amber-foreground: oklch(0.25 0.05 75);
 
+  /* ── Extended Brand Shades (Light / Dark) ── */
+  --primary-light: oklch(0.85 0.06 194);
+  --primary-light-foreground: oklch(0.25 0.08 194);
+  --primary-dark: oklch(0.52 0.12 194);
+  --primary-dark-foreground: oklch(1 0 0);
+
+  --secondary-light: oklch(0.97 0.01 194);
+  --secondary-light-foreground: oklch(0.3 0.08 194);
+  --secondary-dark: oklch(0.88 0.04 194);
+  --secondary-dark-foreground: oklch(0.2 0.06 194);
+
+  --teal-light: oklch(0.85 0.06 194);
+  --teal-light-foreground: oklch(0.25 0.08 194);
+  --teal-dark: oklch(0.52 0.12 194);
+  --teal-dark-foreground: oklch(1 0 0);
+
+  --indigo-light: oklch(0.55 0.12 280);
+  --indigo-light-foreground: oklch(1 0 0);
+  --indigo-dark: oklch(0.25 0.18 280);
+  --indigo-dark-foreground: oklch(0.96 0 0);
+
+  --amber-light: oklch(0.9 0.1 80);
+  --amber-light-foreground: oklch(0.3 0.08 75);
+  --amber-dark: oklch(0.68 0.16 80);
+  --amber-dark-foreground: oklch(1 0 0);
+
   /* ── Semantic Status Colors ── */
   --success: oklch(0.65 0.17 145);
   --success-foreground: oklch(1 0 0);
@@ -143,6 +169,32 @@
   --amber: oklch(0.78 0.14 80);
   --amber-foreground: oklch(0.16 0.025 275);
 
+  /* ── Extended Brand Shades (Light / Dark) ── */
+  --primary-light: oklch(0.82 0.08 194);
+  --primary-light-foreground: oklch(0.16 0.025 275);
+  --primary-dark: oklch(0.6 0.12 194);
+  --primary-dark-foreground: oklch(1 0 0);
+
+  --secondary-light: oklch(0.35 0.04 194);
+  --secondary-light-foreground: oklch(0.85 0.05 194);
+  --secondary-dark: oklch(0.22 0.05 194);
+  --secondary-dark-foreground: oklch(0.9 0.03 194);
+
+  --teal-light: oklch(0.82 0.08 194);
+  --teal-light-foreground: oklch(0.16 0.025 275);
+  --teal-dark: oklch(0.58 0.12 194);
+  --teal-dark-foreground: oklch(1 0 0);
+
+  --indigo-light: oklch(0.52 0.12 280);
+  --indigo-light-foreground: oklch(0.96 0 0);
+  --indigo-dark: oklch(0.32 0.16 280);
+  --indigo-dark-foreground: oklch(0.96 0 0);
+
+  --amber-light: oklch(0.85 0.12 80);
+  --amber-light-foreground: oklch(0.16 0.025 275);
+  --amber-dark: oklch(0.65 0.16 80);
+  --amber-dark-foreground: oklch(1 0 0);
+
   /* ── Semantic Status Colors ── */
   --success: oklch(0.7 0.17 145);
   --success-foreground: oklch(0.16 0.025 275);
@@ -199,6 +251,28 @@
   --color-indigo-foreground: var(--indigo-foreground);
   --color-amber: var(--amber);
   --color-amber-foreground: var(--amber-foreground);
+
+  /* ── Extended Brand Shades ── */
+  --color-primary-light: var(--primary-light);
+  --color-primary-light-foreground: var(--primary-light-foreground);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-dark-foreground: var(--primary-dark-foreground);
+  --color-secondary-light: var(--secondary-light);
+  --color-secondary-light-foreground: var(--secondary-light-foreground);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-secondary-dark-foreground: var(--secondary-dark-foreground);
+  --color-teal-light: var(--teal-light);
+  --color-teal-light-foreground: var(--teal-light-foreground);
+  --color-teal-dark: var(--teal-dark);
+  --color-teal-dark-foreground: var(--teal-dark-foreground);
+  --color-indigo-light: var(--indigo-light);
+  --color-indigo-light-foreground: var(--indigo-light-foreground);
+  --color-indigo-dark: var(--indigo-dark);
+  --color-indigo-dark-foreground: var(--indigo-dark-foreground);
+  --color-amber-light: var(--amber-light);
+  --color-amber-light-foreground: var(--amber-light-foreground);
+  --color-amber-dark: var(--amber-dark);
+  --color-amber-dark-foreground: var(--amber-dark-foreground);
 
   /* ── Semantic ── */
   --color-success: var(--success);

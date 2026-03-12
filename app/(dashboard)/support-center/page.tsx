@@ -7,6 +7,8 @@ export default function SupportCenterPage() {
       title="Support Center"
       description="Manage support tickets and requests from tenant administrators. Track resolution times, maintain SLAs, and build a knowledge base for common platform issues."
       icon={<LifeBuoyIcon className="size-6" />}
+      category="Operations"
+      eta="Q3 2026"
       progress={20}
       features={[
         "Support ticket management dashboard",

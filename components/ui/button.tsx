@@ -31,6 +31,26 @@ const buttonVariants = cva(
         amber:
           "bg-amber text-amber-foreground hover:bg-amber/90 focus-visible:border-amber focus-visible:ring-amber/30",
         link: "text-primary underline-offset-4 hover:underline",
+        "primary-light":
+          "bg-primary-light text-primary-light-foreground hover:bg-primary-light/80 focus-visible:border-primary-light focus-visible:ring-primary-light/30",
+        "primary-dark":
+          "bg-primary-dark text-primary-dark-foreground hover:bg-primary-dark/90 focus-visible:border-primary-dark focus-visible:ring-primary-dark/30",
+        "secondary-light":
+          "bg-secondary-light text-secondary-light-foreground hover:bg-secondary-light/80 focus-visible:border-secondary-light focus-visible:ring-secondary-light/30",
+        "secondary-dark":
+          "bg-secondary-dark text-secondary-dark-foreground hover:bg-secondary-dark/90 focus-visible:border-secondary-dark focus-visible:ring-secondary-dark/30",
+        "teal-light":
+          "bg-teal-light text-teal-light-foreground hover:bg-teal-light/80 focus-visible:border-teal-light focus-visible:ring-teal-light/30",
+        "teal-dark":
+          "bg-teal-dark text-teal-dark-foreground hover:bg-teal-dark/90 focus-visible:border-teal-dark focus-visible:ring-teal-dark/30",
+        "indigo-light":
+          "bg-indigo-light text-indigo-light-foreground hover:bg-indigo-light/80 focus-visible:border-indigo-light focus-visible:ring-indigo-light/30",
+        "indigo-dark":
+          "bg-indigo-dark text-indigo-dark-foreground hover:bg-indigo-dark/90 focus-visible:border-indigo-dark focus-visible:ring-indigo-dark/30",
+        "amber-light":
+          "bg-amber-light text-amber-light-foreground hover:bg-amber-light/80 focus-visible:border-amber-light focus-visible:ring-amber-light/30",
+        "amber-dark":
+          "bg-amber-dark text-amber-dark-foreground hover:bg-amber-dark/90 focus-visible:border-amber-dark focus-visible:ring-amber-dark/30",
       },
       size: {
         default:

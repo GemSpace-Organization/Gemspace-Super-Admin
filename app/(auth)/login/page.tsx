@@ -1,24 +1,32 @@
-"use client"
-
 import { LoginForm } from "@/components/auth/login-form"
 import { Logo } from "@/components/logo"
-import { ShieldCheckIcon, BuildingIcon, BarChart3Icon } from "lucide-react"
+import Link from "next/link"
 
 export default function LoginPage() {
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
-      {/* Left — Form */}
-      <div className="flex flex-col p-6 md:p-10">
+      {/* Left — Branding + Form */}
+      <div className="flex flex-col gap-4 p-6 md:p-10">
+        {/* Top-left logo */}
+        <div className="flex justify-start">
+          <Link href="/" aria-label="Gemspace home">
+            <Logo size="md" showText />
+          </Link>
+        </div>
+
+        {/* Centered form */}
         <div className="flex flex-1 items-center justify-center">
           <div className="w-full max-w-sm">
             <LoginForm />
           </div>
         </div>
+
         <p className="text-center text-[0.7rem] text-muted-foreground">
           &copy; {new Date().getFullYear()} GEM-SPACE. All rights reserved.
         </p>
       </div>
 
+      {/* Right — Hero image */}
       <div className="relative hidden overflow-hidden bg-muted lg:block">
         <img
           src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1920&auto=format&fit=crop"

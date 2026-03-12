@@ -1,48 +1,62 @@
 "use client"
 
-import * as React from "react"
+import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import {
-  Field,
-  FieldDescription,
-  FieldGroup,
-  FieldLabel,
-} from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
-import { ArrowLeftIcon, CheckCircle2Icon } from "lucide-react"
+import { Label } from "@/components/ui/label"
+import {
+  ArrowLeftIcon,
+  CheckCircle2Icon,
+  LoaderIcon,
+  MailIcon,
+} from "lucide-react"
 
 export function ForgotPasswordForm({
   className,
   ...props
 }: React.ComponentProps<"form">) {
-  const [isSubmitted, setIsSubmitted] = React.useState(false)
+  const [loading, setLoading] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [email, setEmail] = useState("")
 
-  if (isSubmitted) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+      setSubmitted(true)
+    }, 1000)
+  }
+
+  if (submitted) {
     return (
-      <div
-        className={cn(
-          "flex flex-col items-center gap-4 text-center",
-          className
-        )}
-      >
-        <div className="flex size-12 items-center justify-center rounded-full bg-success/10">
-          <CheckCircle2Icon className="size-6 text-success" />
+      <div className={cn("flex flex-col gap-6", className)}>
+        <div className="flex flex-col items-center gap-4 text-center">
+          <div className="flex size-14 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/20">
+            <CheckCircle2Icon className="size-7 text-primary" />
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold">Check your inbox</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              A reset link was sent to{" "}
+              <span className="font-medium text-foreground">{email}</span>.
+              Follow the instructions to set a new password.
+            </p>
+          </div>
         </div>
-        <div>
-          <h1 className="text-xl font-bold tracking-tight">Check your email</h1>
-          <p className="mt-2 text-sm text-muted-foreground">
-            We&apos;ve sent a password reset link to your email address. Please
-            check your inbox and follow the instructions.
-          </p>
-        </div>
+
         <a
           href="/login"
-          className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
+          className="inline-flex items-center justify-center gap-1.5 text-sm text-indigo hover:underline"
         >
           <ArrowLeftIcon className="size-3.5" />
           Back to sign in
         </a>
+
+        <p className="text-center text-xs text-muted-foreground">
+          Didn&apos;t receive it? Check your spam folder.
+        </p>
       </div>
     )
   }
@@ -50,50 +64,63 @@ export function ForgotPasswordForm({
   return (
     <form
       className={cn("flex flex-col gap-6", className)}
-      onSubmit={(e) => {
-        e.preventDefault()
-        setIsSubmitted(true)
-      }}
+      onSubmit={handleSubmit}
       {...props}
     >
-      <FieldGroup>
-        <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-bold tracking-tight">
-            Reset your password
-          </h1>
-          <p className="text-sm text-balance text-muted-foreground">
-            Enter your email address and we&apos;ll send you a link to reset
-            your password.
-          </p>
+      <div>
+        <h2 className="text-lg font-semibold">Reset your password</h2>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Enter your admin email and we&apos;ll send you a secure reset link.
+        </p>
+      </div>
+
+      <div className="space-y-4">
+        <div className="space-y-2">
+          <Label htmlFor="email">Email address</Label>
+          <div className="relative">
+            <MailIcon className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
+            <Input
+              id="email"
+              type="email"
+              placeholder="admin@gemspace.app"
+              required
+              autoComplete="email"
+              className="h-10 pl-9"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
         </div>
-        <Field>
-          <FieldLabel htmlFor="email">Email</FieldLabel>
-          <Input
-            id="email"
-            type="email"
-            placeholder="admin@gemspace.app"
-            required
-            className="bg-background"
-          />
-          <FieldDescription>
-            Use the email associated with your super admin account.
-          </FieldDescription>
-        </Field>
-        <Field>
-          <Button type="submit" className="w-full">
-            Send reset link
-          </Button>
-        </Field>
-        <div className="text-center">
-          <a
-            href="/login"
-            className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline"
-          >
-            <ArrowLeftIcon className="size-3.5" />
-            Back to sign in
-          </a>
-        </div>
-      </FieldGroup>
+
+        <Button
+          type="submit"
+          className="h-10 w-full bg-indigo text-indigo-foreground hover:bg-indigo/90"
+          disabled={loading}
+        >
+          {loading ? (
+            <>
+              <LoaderIcon className="mr-2 size-4 animate-spin" />
+              Sending link…
+            </>
+          ) : (
+            "Send reset link"
+          )}
+        </Button>
+      </div>
+
+      <div className="text-center">
+        <a
+          href="/login"
+          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ArrowLeftIcon className="size-3.5" />
+          Back to sign in
+        </a>
+      </div>
+
+      <p className="text-center text-xs text-muted-foreground">
+        Authorized personnel only. All access is logged.
+      </p>
     </form>
   )
 }

@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { EyeIcon, EyeOffIcon, LoaderIcon } from "lucide-react"
-import { Logo } from "@/components/logo"
 
 export function LoginForm({
   className,
@@ -32,8 +31,6 @@ export function LoginForm({
       onSubmit={handleSubmit}
       {...props}
     >
-      <Logo size="md" showText subtitle="Super Admin" />
-
       <div>
         <h2 className="text-lg font-semibold">Welcome back</h2>
         <p className="mt-1 text-sm text-muted-foreground">

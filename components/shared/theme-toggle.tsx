@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useTheme } from "next-themes"
-import { MonitorIcon, MoonIcon, SunIcon } from "lucide-react"
+import { MonitorIcon, MoonIcon, SunIcon, CheckIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -13,9 +13,18 @@ import {
   DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu"
 
+function useIsMac() {
+  const [isMac, setIsMac] = React.useState(false)
+  React.useEffect(() => {
+    setIsMac(navigator.platform.toUpperCase().includes("MAC"))
+  }, [])
+  return isMac
+}
+
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
+  const isMac = useIsMac()
 
   React.useEffect(() => setMounted(true), [])
 
@@ -52,6 +61,9 @@ export function ThemeToggle() {
         >
           <SunIcon className="size-4" />
           Light
+          {theme === "light" && (
+            <CheckIcon className="ml-auto size-3.5 text-primary" />
+          )}
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => setTheme("dark")}
@@ -59,6 +71,9 @@ export function ThemeToggle() {
         >
           <MoonIcon className="size-4" />
           Dark
+          {theme === "dark" && (
+            <CheckIcon className="ml-auto size-3.5 text-primary" />
+          )}
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => setTheme("system")}
@@ -66,12 +81,20 @@ export function ThemeToggle() {
         >
           <MonitorIcon className="size-4" />
           System
+          {theme === "system" && (
+            <CheckIcon className="ml-auto size-3.5 text-primary" />
+          )}
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <div className="px-2 py-1.5 text-[0.65rem] leading-relaxed text-muted-foreground">
-          Keyboard shortcut: press{" "}
-          <kbd className="rounded border px-1 font-mono text-[0.6rem]">D</kbd>{" "}
-          to toggle between light and dark mode.
+          Toggle:{" "}
+          <kbd className="rounded border bg-muted px-1 py-0.5 font-mono text-[0.6rem]">
+            {isMac ? "\u2318" : "Ctrl"}
+          </kbd>
+          {" + "}
+          <kbd className="rounded border bg-muted px-1 py-0.5 font-mono text-[0.6rem]">
+            D
+          </kbd>
         </div>
       </DropdownMenuContent>
     </DropdownMenu>

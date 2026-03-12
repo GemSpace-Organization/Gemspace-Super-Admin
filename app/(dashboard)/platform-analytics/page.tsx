@@ -7,6 +7,8 @@ export default function PlatformAnalyticsPage() {
       title="Platform Analytics"
       description="Comprehensive analytics and insights across the entire GEM-SPACE platform. Track tenant usage, user engagement, and platform growth metrics with interactive dashboards."
       icon={<BarChart3Icon className="size-6" />}
+      category="Analytics & Reports"
+      eta="Q3 2026"
       progress={25}
       features={[
         "Platform-wide usage overview and trends",

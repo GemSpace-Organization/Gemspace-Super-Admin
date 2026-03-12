@@ -7,6 +7,8 @@ export default function PlatformSettingsPage() {
       title="Platform Settings"
       description="Configure global platform settings including branding, notifications, API keys, and third-party integrations for the entire GEM-SPACE ecosystem."
       icon={<Settings2Icon className="size-6" />}
+      category="Configuration"
+      eta="Q3 2026"
       progress={30}
       features={[
         "General platform configuration",

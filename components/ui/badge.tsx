@@ -35,6 +35,22 @@ const badgeVariants = cva(
           "bg-indigo/10 text-indigo-foreground dark:bg-indigo/20 dark:text-indigo [a]:hover:bg-indigo/20",
         amber:
           "bg-amber/10 text-amber-foreground dark:bg-amber/20 dark:text-amber [a]:hover:bg-amber/20",
+        "primary-light":
+          "bg-primary-light/15 text-primary-light-foreground dark:bg-primary-light/20 [a]:hover:bg-primary-light/25",
+        "primary-dark":
+          "bg-primary-dark/15 text-primary-dark-foreground dark:bg-primary-dark/20 [a]:hover:bg-primary-dark/25",
+        "teal-light":
+          "bg-teal-light/15 text-teal-light-foreground dark:bg-teal-light/20 [a]:hover:bg-teal-light/25",
+        "teal-dark":
+          "bg-teal-dark/15 text-teal-dark-foreground dark:bg-teal-dark/20 [a]:hover:bg-teal-dark/25",
+        "indigo-light":
+          "bg-indigo-light/15 text-indigo-light-foreground dark:bg-indigo-light/20 [a]:hover:bg-indigo-light/25",
+        "indigo-dark":
+          "bg-indigo-dark/15 text-indigo-dark-foreground dark:bg-indigo-dark/20 [a]:hover:bg-indigo-dark/25",
+        "amber-light":
+          "bg-amber-light/15 text-amber-light-foreground dark:bg-amber-light/20 [a]:hover:bg-amber-light/25",
+        "amber-dark":
+          "bg-amber-dark/15 text-amber-dark-foreground dark:bg-amber-dark/20 [a]:hover:bg-amber-dark/25",
       },
     },
     defaultVariants: {

@@ -7,6 +7,8 @@ export default function AnnouncementsPage() {
       title="Announcements"
       description="Create and manage platform-wide announcements. Broadcast important updates, maintenance notices, and policy changes to all tenants or target specific groups."
       icon={<MegaphoneIcon className="size-6" />}
+      category="Operations"
+      eta="Q2 2026"
       progress={25}
       features={[
         "Create and schedule announcements",

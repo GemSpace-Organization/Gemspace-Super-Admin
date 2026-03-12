@@ -43,7 +43,10 @@ function ThemeHotkey() {
         return
       }
 
-      if (event.metaKey || event.ctrlKey || event.altKey) {
+      const isMac = navigator.platform.toUpperCase().includes("MAC")
+      const hasModifier = isMac ? event.metaKey : event.ctrlKey
+
+      if (!hasModifier) {
         return
       }
 
@@ -55,6 +58,7 @@ function ThemeHotkey() {
         return
       }
 
+      event.preventDefault()
       setTheme(resolvedTheme === "dark" ? "light" : "dark")
     }
 

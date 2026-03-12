@@ -7,6 +7,8 @@ export default function AuditLogsPage() {
       title="Audit Logs"
       description="Comprehensive audit trail of all platform activities. Track administrator actions, system configuration changes, and security events with detailed timestamps and metadata."
       icon={<FileTextIcon className="size-6" />}
+      category="Security & Compliance"
+      eta="Q2 2026"
       progress={45}
       features={[
         "Complete activity audit trail",

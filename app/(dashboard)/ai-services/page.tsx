@@ -7,6 +7,8 @@ export default function AIServicesPage() {
       title="AI Services"
       description="Configure and monitor AI-powered services across the platform. Manage model deployments, set per-tenant quotas, and track AI usage and costs in real time."
       icon={<BrainCircuitIcon className="size-6" />}
+      category="AI & Technology"
+      eta="Q3 2026"
       progress={20}
       features={[
         "AI service status overview and monitoring",
