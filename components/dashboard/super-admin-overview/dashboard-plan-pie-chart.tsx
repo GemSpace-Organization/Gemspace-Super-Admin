@@ -54,7 +54,7 @@ export function DashboardPlanPieChart({
       <CardContent>
         <ChartContainer
           config={chartConfig}
-          className="mx-auto h-[200px] w-full"
+          className="mx-auto aspect-auto! h-52 w-full min-w-0"
         >
           <PieChart accessibilityLayer>
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />

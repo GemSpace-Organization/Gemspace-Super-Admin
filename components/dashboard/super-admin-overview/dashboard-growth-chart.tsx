@@ -54,7 +54,10 @@ export function DashboardGrowthChart({
         <CardDescription>Last 7 days trend</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="h-[280px] w-full">
+        <ChartContainer
+          config={chartConfig}
+          className="aspect-auto! h-60 w-full min-w-0 sm:h-72"
+        >
           <AreaChart data={chartData} accessibilityLayer>
             <CartesianGrid vertical={false} />
             <XAxis
@@ -62,9 +65,16 @@ export function DashboardGrowthChart({
               tickLine={false}
               axisLine={false}
               tickMargin={8}
+              minTickGap={16}
+              interval="preserveStartEnd"
               tickFormatter={(value: string) => value.slice(5)}
             />
-            <YAxis tickLine={false} axisLine={false} tickMargin={8} />
+            <YAxis
+              width={34}
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+            />
             <ChartTooltip content={<ChartTooltipContent />} />
             <Area
               dataKey="rejections"

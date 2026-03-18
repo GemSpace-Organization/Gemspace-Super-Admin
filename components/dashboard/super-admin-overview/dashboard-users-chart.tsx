@@ -50,7 +50,10 @@ export function DashboardUsersChart({
         <CardDescription>Students, lecturers and school admins</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="h-[280px] w-full">
+        <ChartContainer
+          config={chartConfig}
+          className="aspect-auto! h-60 w-full min-w-0 sm:h-72"
+        >
           <BarChart data={chartData} accessibilityLayer>
             <CartesianGrid vertical={false} />
             <XAxis
@@ -58,9 +61,16 @@ export function DashboardUsersChart({
               tickLine={false}
               axisLine={false}
               tickMargin={8}
+              minTickGap={16}
+              interval="preserveStartEnd"
               tickFormatter={(value: string) => value.slice(5)}
             />
-            <YAxis tickLine={false} axisLine={false} tickMargin={8} />
+            <YAxis
+              width={34}
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+            />
             <ChartTooltip content={<ChartTooltipContent />} />
             <Bar
               dataKey="students"

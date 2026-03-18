@@ -32,15 +32,21 @@ export function SuperAdminOverview() {
       <DashboardOverviewCards summary={dashboard?.summary} />
 
       <div className="grid gap-4 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+        <div className="min-w-0 lg:col-span-2">
           <DashboardGrowthChart dashboard={dashboard} />
         </div>
-        <DashboardPlanPieChart dashboard={dashboard} />
+        <div className="min-w-0">
+          <DashboardPlanPieChart dashboard={dashboard} />
+        </div>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-2">
-        <DashboardUsersChart dashboard={dashboard} />
-        <DashboardAlertsCard dashboard={dashboard} />
+        <div className="min-w-0">
+          <DashboardUsersChart dashboard={dashboard} />
+        </div>
+        <div className="min-w-0">
+          <DashboardAlertsCard dashboard={dashboard} />
+        </div>
       </div>
 
       <DashboardTopInstitutionsTable dashboard={dashboard} />
