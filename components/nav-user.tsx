@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { useLogoutMutation } from "@/features/auth/hooks/use-auth"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   DropdownMenu,
@@ -39,6 +40,7 @@ export function NavUser({
 }) {
   const { isMobile } = useSidebar()
   const router = useRouter()
+  const logoutMutation = useLogoutMutation()
 
   const initials = user.name
     .split(" ")
@@ -46,6 +48,14 @@ export function NavUser({
     .join("")
     .toUpperCase()
     .slice(0, 2)
+
+  async function handleLogout() {
+    try {
+      await logoutMutation.mutateAsync()
+    } finally {
+      router.replace("/login")
+    }
+  }
 
   return (
     <SidebarMenu>
@@ -127,9 +137,14 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => router.push("/login")}>
+            <DropdownMenuItem
+              disabled={logoutMutation.isPending}
+              onClick={() => {
+                void handleLogout()
+              }}
+            >
               <LogOutIcon />
-              Log out
+              {logoutMutation.isPending ? "Logging out..." : "Log out"}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

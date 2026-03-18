@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { EyeIcon, EyeOffIcon, LoaderIcon } from "lucide-react"
+import { useLoginMutation } from "@/features/auth/hooks/use-auth"
+import { ApiError } from "@/lib/api/http"
 
 export function LoginForm({
   className,
@@ -15,20 +17,29 @@ export function LoginForm({
 }: React.ComponentProps<"form">) {
   const router = useRouter()
   const [showPassword, setShowPassword] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const loginMutation = useLoginMutation()
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setLoading(true)
-    setTimeout(() => {
-      router.push("/dashboard")
-    }, 800)
+    await loginMutation.mutateAsync({ email, password })
+    router.push("/dashboard")
   }
+
+  const errorMessage =
+    loginMutation.error instanceof ApiError
+      ? loginMutation.error.message
+      : loginMutation.error
+        ? "Unable to sign in. Please try again."
+        : null
 
   return (
     <form
       className={cn("flex flex-col gap-6", className)}
-      onSubmit={handleSubmit}
+      onSubmit={(e) => {
+        void handleSubmit(e)
+      }}
       {...props}
     >
       <div>
@@ -48,6 +59,8 @@ export function LoginForm({
             required
             autoComplete="email"
             className="h-10"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -69,6 +82,8 @@ export function LoginForm({
               required
               autoComplete="current-password"
               className="h-10 pr-10"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button
               type="button"
@@ -92,12 +107,18 @@ export function LoginForm({
           </Label>
         </div>
 
+        {errorMessage && (
+          <p className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-xs text-destructive">
+            {errorMessage}
+          </p>
+        )}
+
         <Button
           type="submit"
           className="h-10 w-full bg-indigo text-indigo-foreground hover:bg-indigo/90"
-          disabled={loading}
+          disabled={loginMutation.isPending}
         >
-          {loading ? (
+          {loginMutation.isPending ? (
             <>
               <LoaderIcon className="mr-2 size-4 animate-spin" />
               Signing in…

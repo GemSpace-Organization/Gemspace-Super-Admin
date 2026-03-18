@@ -287,7 +287,7 @@ export function SidebarSearch({ groups }: SidebarSearchProps) {
                 No results for &ldquo;{query}&rdquo;
               </p>
               <p className="mt-1 text-[0.65rem] text-sidebar-foreground/30">
-                Try a different term like &ldquo;tenants&rdquo;,
+                Try a different term like &ldquo;institutions&rdquo;,
                 &ldquo;settings&rdquo;, or &ldquo;users&rdquo;
               </p>
             </div>

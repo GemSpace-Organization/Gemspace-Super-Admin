@@ -3,8 +3,10 @@ import { Geist_Mono, Nunito_Sans } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
+import { ReactQueryProvider } from "@/providers/react-query-provider"
 
 const nunitoSans = Nunito_Sans({ variable: "--font-sans" })
 
@@ -39,9 +41,14 @@ export default function RootLayout({
       )}
     >
       <body>
-        <TooltipProvider>
-          <ThemeProvider>{children}</ThemeProvider>
-        </TooltipProvider>
+        <ReactQueryProvider>
+          <TooltipProvider>
+            <ThemeProvider>
+              {children}
+              <Toaster position="top-center" richColors={false} />
+            </ThemeProvider>
+          </TooltipProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   )

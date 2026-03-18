@@ -28,6 +28,8 @@ const buttonVariants = cva(
         teal: "bg-teal text-teal-foreground hover:bg-teal/90 focus-visible:border-teal focus-visible:ring-teal/30",
         indigo:
           "bg-indigo text-indigo-foreground hover:bg-indigo/90 focus-visible:border-indigo focus-visible:ring-indigo/30",
+        "brand-mix":
+          "btn-brand-mix focus-visible:border-brand-mix-border focus-visible:ring-brand-mix-start/40",
         amber:
           "bg-amber text-amber-foreground hover:bg-amber/90 focus-visible:border-amber focus-visible:ring-amber/30",
         link: "text-primary underline-offset-4 hover:underline",

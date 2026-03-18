@@ -1,0 +1,57 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+import type { SuperAdminDashboardResponse } from "@/features/super-admin/types/super-admin.types"
+
+export function DashboardTopInstitutionsTable({
+  dashboard,
+}: {
+  dashboard: SuperAdminDashboardResponse | undefined
+}) {
+  const items = dashboard?.usage.topInstitutions ?? []
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-base">Top Institutions</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Institution</TableHead>
+              <TableHead className="text-right">Usage Value</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {items.length === 0 ? (
+              <TableRow>
+                <TableCell
+                  colSpan={2}
+                  className="py-8 text-center text-sm text-muted-foreground"
+                >
+                  No institution activity data available yet.
+                </TableCell>
+              </TableRow>
+            ) : (
+              items.map((item) => (
+                <TableRow key={item.id}>
+                  <TableCell className="font-medium">{item.name}</TableCell>
+                  <TableCell className="text-right">
+                    {item.value.toLocaleString()}
+                  </TableCell>
+                </TableRow>
+              ))
+            )}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  )
+}

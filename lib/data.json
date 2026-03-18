@@ -141,7 +141,11 @@
       "count": 8,
       "href": "/content-moderation"
     },
-    { "label": "Pending admin requests", "count": 3, "href": "/tenant-admins" }
+    {
+      "label": "Pending admin requests",
+      "count": 3,
+      "href": "/institution-admins"
+    }
   ],
   "systemServices": [
     {

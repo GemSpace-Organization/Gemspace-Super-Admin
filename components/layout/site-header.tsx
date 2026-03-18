@@ -28,8 +28,8 @@ import {
 
 const pageTitles: Record<string, string> = {
   "/dashboard": "Dashboard",
-  "/tenants": "Tenants",
-  "/tenant-admins": "Tenant Admins",
+  "/institutions": "Institutions",
+  "/institution-admins": "Institution Admins",
   "/user-management": "User Management",
   "/platform-analytics": "Analytics",
   "/reports": "Reports",
@@ -39,6 +39,7 @@ const pageTitles: Record<string, string> = {
   "/audit-logs": "Audit Logs",
   "/roles-permissions": "Roles & Permissions",
   "/compliance": "Compliance",
+  "/monitoring": "Monitoring",
   "/system-health": "System Health",
   "/announcements": "Announcements",
   "/support-center": "Support Center",
@@ -58,7 +59,7 @@ export function SiteHeader() {
   const { open, toggleSidebar } = useSidebar()
 
   return (
-    <header className="sticky top-0 z-30 flex h-14 shrink-0 items-center gap-2 border-b bg-background/95 px-4 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-30 flex h-14 shrink-0 items-center gap-2 border-b bg-background/95 px-4 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="flex flex-1 items-center gap-2">
         {/* Professional sidebar toggle with state-aware icon + tooltip */}
         <Tooltip>
@@ -71,9 +72,9 @@ export function SiteHeader() {
               className="-ml-1 size-8 text-muted-foreground hover:text-foreground"
             >
               {open ? (
-                <PanelLeftClose className="size-[18px]" />
+                <PanelLeftClose className="size-4.5" />
               ) : (
-                <PanelLeftOpen className="size-[18px]" />
+                <PanelLeftOpen className="size-4.5" />
               )}
             </Button>
           </TooltipTrigger>

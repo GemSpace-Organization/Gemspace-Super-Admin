@@ -20,7 +20,7 @@ const cards = [
     trend: "up" as const,
   },
   {
-    title: "Tenant Admins",
+    title: "Institution Admins",
     value: data.stats.totalAdmins,
     subtitle: `${data.stats.activeAdmins} currently active`,
     icon: UserCogIcon,
