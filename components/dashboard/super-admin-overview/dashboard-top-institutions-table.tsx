@@ -16,6 +16,14 @@ export function DashboardTopInstitutionsTable({
 }) {
   const items = dashboard?.usage.topInstitutions ?? []
 
+  const formatUsageValue = (value: unknown) => {
+    if (typeof value === "number" && Number.isFinite(value)) {
+      return value.toLocaleString()
+    }
+
+    return "0"
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -40,11 +48,11 @@ export function DashboardTopInstitutionsTable({
                 </TableCell>
               </TableRow>
             ) : (
-              items.map((item) => (
-                <TableRow key={item.id}>
+              items.map((item, index) => (
+                <TableRow key={`${item.id ?? "institution"}-${index}`}>
                   <TableCell className="font-medium">{item.name}</TableCell>
                   <TableCell className="text-right">
-                    {item.value.toLocaleString()}
+                    {formatUsageValue(item.value)}
                   </TableCell>
                 </TableRow>
               ))
